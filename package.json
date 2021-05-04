@@ -1,0 +1,42 @@
+{
+  "name": "generate-icons",
+  "version": "0.1.0",
+  "description": "generate icons from single image file",
+  "engines": {
+    "node": ">=14.8.0"
+  },
+  "main": "dist/main.js",
+  "scripts": {
+    "prepublish": "yarn build",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koizuka/generate-icons.git"
+  },
+  "author": "koizuka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koizuka/generate-icons/issues"
+  },
+  "homepage": "https://github.com/koizuka/generate-icons#readme",
+  "keywords": [
+    "svg",
+    "ico",
+    "png"
+  ],
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.1",
+    "oslllo-svg2": "^0.2.3",
+    "png-to-ico": "^2.1.2",
+    "ts-node": "^9.1.1"
+  },
+  "devDependencies": {
+    "@types/command-line-args": "^5.0.0",
+    "@types/command-line-usage": "^5.0.1",
+    "@types/node": "^15.0.1",
+    "typescript": "^4.2.4"
+  }
+}
