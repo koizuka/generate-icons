@@ -1,11 +1,14 @@
 {
   "name": "generate-icons",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "generate icons from single image file",
   "engines": {
     "node": ">=14.8.0"
   },
   "main": "dist/main.js",
+  "bin": {
+    "generate-icons": "dist/main.js"
+  },
   "scripts": {
     "prepublish": "yarn build",
     "build": "tsc",
