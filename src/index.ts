@@ -56,11 +56,17 @@ async function main() {
             description: 'Show this help.'
         },
         {
+            name: 'version',
+            alias: 'v',
+            type: Boolean,
+            description: 'Show version.'
+        },
+        {
             name: 'manifest',
             alias: 'm',
             type: String,
             defaultValue: './public/manifest.json',
-            description: 'specify manifest.json file.',
+            description: 'Specify manifest.json file.',
         },
         {
             name: 'src',
@@ -71,6 +77,19 @@ async function main() {
     ];
 
     const options = commandLineArgs(optionDefinitions);
+
+    if (options.version) {
+        try {
+            const packageJson = await readFile(path.join(__dirname, '..', 'package.json'));
+            const pkg = JSON.parse(packageJson.toString('utf8'));
+            console.log(pkg.version);
+            return;
+        }
+        catch (e) {
+            console.log(`reading package.json failed: ${e.name}:${e.message}`);
+            process.exit(1);
+        }
+    }
 
     if (!options.help) {
         if (!options.src) {

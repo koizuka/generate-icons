@@ -34,7 +34,8 @@ generate-icons
 Options
 
   -h, --help              Show this help.             
-  -m, --manifest string   specify manifest.json file. 
+  -v, --version           Show version.               
+  -m, --manifest string   Specify manifest.json file. 
   --src string            SVG filename to read.       
 
   Project home: https://github.com/koizuka/generate-icons 
