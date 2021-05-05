@@ -37,6 +37,7 @@ Options
   -v, --version           Show version.               
   -m, --manifest string   Specify manifest.json file. 
   --src string            SVG filename to read.       
+  --background string     Background color(eg. "white", "#ffffff"). transparent if not specified. 
 
   Project home: https://github.com/koizuka/generate-icons 
 ```

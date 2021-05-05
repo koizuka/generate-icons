@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 // @ts-ignore
@@ -34,14 +34,31 @@ async function loadIconsFromManifestJson(filename: string): Promise<Icons[]> {
     }
 }
 
-function loadSvg(filename: string, size: { width: number, height: number }) {
+function loadSvg(filename: string, { size, background }: { size: { width: number, height: number }, background: string }) {
     try {
         const svg = Svg2(filename);
+        if (background) {
+            svg.options.update('background', { color: background });
+        } else {
+            svg.options.update('png', { transparent: true });
+        }
         svg.svg.resize(size);
         return svg;
     }
     catch (e) {
         console.error(`loading SVG file '${filename}' failed: ${e.name}: ${e.message}`);
+        process.exit(1);
+    }
+}
+
+function getVersion() {
+    const packageJson = readFileSync(path.join(__dirname, '..', 'package.json'));
+    try {
+        const pkg = JSON.parse(packageJson.toString('utf8'));
+        return pkg.version;
+    }
+    catch (e) {
+        console.log(`reading '${packageJson}' failed: ${e.name}:${e.message}`);
         process.exit(1);
     }
 }
@@ -74,21 +91,18 @@ async function main() {
             type: String,
             description: 'SVG filename to read.'
         },
+        {
+            name: 'background',
+            type: String,
+            description: 'Background color(eg. "white", "#ffffff"). transparent if not specified.',
+        },
     ];
 
     const options = commandLineArgs(optionDefinitions);
 
     if (options.version) {
-        try {
-            const packageJson = await readFile(path.join(__dirname, '..', 'package.json'));
-            const pkg = JSON.parse(packageJson.toString('utf8'));
-            console.log(pkg.version);
-            return;
-        }
-        catch (e) {
-            console.log(`reading package.json failed: ${e.name}:${e.message}`);
-            process.exit(1);
-        }
+        console.log(getVersion());
+        return;
     }
 
     if (!options.help) {
@@ -102,7 +116,7 @@ async function main() {
     if (options.help) {
         const usage = commandLineUsage([
             {
-                header: 'generate-icons',
+                header: `generate-icons ${getVersion()}`,
                 content: 'generate icon files defined in manifest.json from a SVG file.',
             },
             {
@@ -125,6 +139,7 @@ async function main() {
     const dirname = path.dirname(manifestFilename);
 
     const icons = await loadIconsFromManifestJson(manifestFilename);
+    const background = options.background;
 
     for (const icon of icons) {
         const fileName = path.join(dirname, icon.src);
@@ -154,9 +169,9 @@ async function main() {
         try {
             switch (icon.type) {
                 case "image/x-icon":
-                    const pngs = await Promise.all(sizes.map(s => {
-                        console.log('size:', s.width);
-                        const svg = loadSvg(svgFileName, s);
+                    const pngs = await Promise.all(sizes.map(size => {
+                        console.log('size:', size.width);
+                        const svg = loadSvg(svgFileName, { size: size, background });
                         return svg.png().toBuffer();
                     }));
                     const buf = await PngToIco(pngs);
@@ -165,7 +180,7 @@ async function main() {
 
                 case "image/png":
                     console.log('size:', sizes[0].width);
-                    const svg = loadSvg(svgFileName, sizes[0]);
+                    const svg = loadSvg(svgFileName, { size: sizes[0], background });
                     await svg.png().toFile(fileName);
                     break;
 
