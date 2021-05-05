@@ -98,7 +98,23 @@ async function main() {
         },
     ];
 
-    const options = commandLineArgs(optionDefinitions);
+    type Options = {
+        help: boolean;
+        version: boolean;
+        manifest: string;
+        src: string;
+        background: string;
+    };
+
+    const options = function (): Options {
+        try {
+            return commandLineArgs(optionDefinitions) as Options;
+        }
+        catch (e) {
+            console.error(`command line error: ${e.message}`);
+            process.exit(1);
+        }
+    }();
 
     if (options.version) {
         console.log(getVersion());

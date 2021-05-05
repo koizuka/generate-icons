@@ -93,7 +93,15 @@ async function main() {
             description: 'Background color(eg. "white", "#ffffff"). transparent if not specified.',
         },
     ];
-    const options = command_line_args_1.default(optionDefinitions);
+    const options = function () {
+        try {
+            return command_line_args_1.default(optionDefinitions);
+        }
+        catch (e) {
+            console.error(`command line error: ${e.message}`);
+            process.exit(1);
+        }
+    }();
     if (options.version) {
         console.log(getVersion());
         return;
