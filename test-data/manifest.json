@@ -1,0 +1,14 @@
+{
+  "icons": [
+    {
+      "src": "test.ico",
+      "sizes": "24x24 48x48 96x96",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "test.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }
+  ]
+}
