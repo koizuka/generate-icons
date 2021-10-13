@@ -2,12 +2,19 @@ name: test
 
 on:
   workflow_dispatch:
+  push:
     branches:
       - main
+    paths:
+      - '.github/workflows/test.yml'
+      - 'package.json'
+      - 'tsconfig.json'
+      - 'src/*'
   pull_request:
     branches:
       - main
     paths:
+      - '.github/workflows/test.yml'
       - 'package.json'
       - 'tsconfig.json'
       - 'src/*'
