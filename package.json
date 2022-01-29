@@ -1,6 +1,6 @@
 {
   "name": "generate-icons",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "generate icons from single image file",
   "engines": {
     "node": ">=14.8.0"
