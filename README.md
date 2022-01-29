@@ -50,6 +50,19 @@ supported input format:
 supported output formats:
 * .ico, .png
 
+# Development information
+## build and run
+```shell
+yarn build
+yarn start test-data/test.svg
+```
+
+## update version and publish
+```shell
+npm version patch # eg. increase patch level
+npm publish
+```
+
 # License
 ISC
 
