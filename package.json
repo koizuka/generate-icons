@@ -11,7 +11,7 @@
     "generate-icons"
   ],
   "scripts": {
-    "start": "node dist/generate-icons",
+    "start": "node ./generate-icons",
     "prepublish": "yarn build",
     "build": "rm -f dist/* && tsc",
     "postversion": "git push && git push --tags",
