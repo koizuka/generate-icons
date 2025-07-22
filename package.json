@@ -35,19 +35,19 @@
   "dependencies": {
     "command-line-args": "^6.0.1",
     "command-line-usage": "^7.0.3",
-    "oslllo-svg2": "^2.0.0",
-    "png-to-ico": "^2.1.2"
+    "oslllo-svg2": "^4.0.0",
+    "png-to-ico": "^2.1.8"
   },
   "devDependencies": {
     "@types/command-line-args": "^5.2.3",
     "@types/command-line-usage": "^5.0.4",
-    "@types/jest": "^27.4.0",
-    "@types/node": "^16.10.3",
-    "@types/pngjs": "^6.0.1",
-    "image-size": "^1.0.0",
-    "jest": "^27.4.7",
-    "pngjs": "^6.0.0",
-    "ts-jest": "^27.1.3",
-    "typescript": "^4.5.5"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.1.0",
+    "@types/pngjs": "^6.0.5",
+    "image-size": "^2.0.2",
+    "jest": "^30.0.5",
+    "pngjs": "^7.0.0",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.8.3"
   }
 }

@@ -10,6 +10,6 @@ describe('parseIconSizes', () => {
   });
 
   test('invalid size', () => {
-    expect(() => parseIconSizes("test")).toThrowError(new Error("invalid size: 'test'"));
+    expect(() => parseIconSizes("test")).toThrow("invalid size: 'test'");
   });
 })
