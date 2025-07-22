@@ -33,14 +33,14 @@
     "png"
   ],
   "dependencies": {
-    "command-line-args": "^5.2.0",
-    "command-line-usage": "^6.1.1",
+    "command-line-args": "^6.0.1",
+    "command-line-usage": "^7.0.3",
     "oslllo-svg2": "^2.0.0",
     "png-to-ico": "^2.1.2"
   },
   "devDependencies": {
-    "@types/command-line-args": "^5.2.0",
-    "@types/command-line-usage": "^5.0.2",
+    "@types/command-line-args": "^5.2.3",
+    "@types/command-line-usage": "^5.0.4",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.10.3",
     "@types/pngjs": "^6.0.1",
