@@ -22,7 +22,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.x'  # Use latest Node.js for npm v11+
+          node-version: '22.x'
+
+      - name: Upgrade npm to v11+ for OIDC support
+        run: npm install -g npm@latest
 
       - name: Check npm version
         run: npm --version
