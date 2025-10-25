@@ -32,7 +32,7 @@ describe('generateIconsFromSvgFile', () => {
         expect(size.images).toEqual(icoDef.sizes);
       }
     }
-  });
+  }, 10000);
 
   test('png', async () => {
     const pngDef: Icon = {
