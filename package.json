@@ -35,9 +35,9 @@
     "png"
   ],
   "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "command-line-args": "^6.0.1",
     "command-line-usage": "^7.0.4",
-    "oslllo-svg2": "^4.0.0",
     "png-to-ico": "^3.0.1"
   },
   "devDependencies": {
