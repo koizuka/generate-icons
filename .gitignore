@@ -5,3 +5,4 @@ generate-icons-*.tgz
 dist/
 test-data/*.png
 test-data/*.ico
+check/

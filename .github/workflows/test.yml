@@ -44,10 +44,11 @@ jobs:
 
     - name: Install test
       run: |
+        mkdir -p check
+        cd check
         npm init -y
         npm install ..
         ./node_modules/.bin/generate-icons -m ../test-data/manifest.json ../test-data/test.svg
         test -f ../test-data/test.ico
         test -f ../test-data/test.png
-      working-directory: ./check
 
