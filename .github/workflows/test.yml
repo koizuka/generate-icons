@@ -8,7 +8,7 @@ on:
     paths:
       - '.github/workflows/test.yml'
       - 'package.json'
-      - 'yarn.lock'
+      - 'package-lock.json'
       - 'tsconfig.json'
       - 'src/*'
   pull_request:
@@ -17,7 +17,7 @@ on:
     paths:
       - '.github/workflows/test.yml'
       - 'package.json'
-      - 'yarn.lock'
+      - 'package-lock.json'
       - 'tsconfig.json'
       - 'src/*'
 
@@ -31,16 +31,16 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-        cache: 'yarn'
+        cache: 'npm'
 
     - name: Install
-      run: yarn install
+      run: npm ci
 
     - name: Test
-      run: yarn test
+      run: npm test
 
     - name: Build
-      run: yarn build
+      run: npm run build
 
     - name: Install test
       run: |
