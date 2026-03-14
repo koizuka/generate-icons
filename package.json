@@ -5,7 +5,9 @@
   "engines": {
     "node": ">=20"
   },
-  "bin": "./generate-icons",
+  "bin": {
+    "generate-icons": "generate-icons"
+  },
   "files": [
     "dist",
     "generate-icons"
