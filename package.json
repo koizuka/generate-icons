@@ -3,7 +3,7 @@
   "version": "0.1.12",
   "description": "generate icons from single image file",
   "engines": {
-    "node": ">=14.8.0"
+    "node": ">=20"
   },
   "bin": "./generate-icons",
   "files": [
@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start": "node ./generate-icons",
-    "prepublish": "yarn build",
+    "prepare": "npm run build",
     "build": "rm -f dist/* && tsc",
     "postversion": "git push && git push --tags",
     "test": "jest"
@@ -34,20 +34,21 @@
   ],
   "dependencies": {
     "command-line-args": "^6.0.1",
-    "command-line-usage": "^7.0.3",
+    "command-line-usage": "^7.0.4",
     "oslllo-svg2": "^4.0.0",
-    "png-to-ico": "^2.1.8"
+    "png-to-ico": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.29.0",
     "@types/command-line-args": "^5.2.3",
     "@types/command-line-usage": "^5.0.4",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.12.0",
     "@types/pngjs": "^6.0.5",
     "image-size": "^2.0.2",
-    "jest": "^30.0.5",
+    "jest": "^30.3.0",
     "pngjs": "^7.0.0",
-    "ts-jest": "^29.4.0",
+    "ts-jest": "^29.4.6",
     "typescript": "^5.8.3"
   }
 }

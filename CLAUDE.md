@@ -64,11 +64,13 @@ Test data is stored in `test-data/` directory.
 
 ## Important Implementation Details
 
-1. **SVG to Raster Conversion**: Uses `oslllo-svg2` library which requires careful size specification
-2. **ICO Format**: ICO files can contain multiple PNG images of different sizes (16x16, 32x32, 48x48, etc.)
-3. **Background Handling**: Default is transparent; optional background color can be specified
-4. **Path Resolution**: All file paths are resolved relative to the current working directory
-5. **Error Messages**: Use `FatalError` class for user-facing errors to ensure clean output
+1. **Node.js Requirement**: Requires Node.js >= 20
+2. **SVG to Raster Conversion**: Uses `oslllo-svg2` library which requires careful size specification
+3. **ICO Format**: ICO files can contain multiple PNG images of different sizes (16x16, 32x32, 48x48, etc.)
+4. **Background Handling**: Default is transparent; optional background color can be specified
+5. **Path Resolution**: All file paths are resolved relative to the current working directory
+6. **Error Messages**: Use `FatalError` class for user-facing errors to ensure clean output
+7. **ESM Dependencies**: `png-to-ico` v3 is an ESM package; Jest requires `transformIgnorePatterns` and `@babel/preset-env` to handle it
 
 ## Common Tasks
 

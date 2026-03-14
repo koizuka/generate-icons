@@ -53,8 +53,8 @@ supported output formats:
 # Development information
 ## build and run
 ```shell
-yarn build
-yarn start test-data/test.svg
+npm run build
+npm start test-data/test.svg
 ```
 
 ## update version and publish
