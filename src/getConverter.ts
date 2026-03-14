@@ -1,19 +1,18 @@
-// @ts-ignore
-import Svg2 from 'oslllo-svg2';
+import { readFileSync } from 'fs';
+import { renderAsync } from '@resvg/resvg-js';
 import PngToIco from 'png-to-ico';
 import { FatalError } from './FatalError';
 import { Size } from './loadIconsFromManifestJson';
 
 async function getPngFromSvgFile(filename: string, { size, background }: { size: { width: number, height: number }, background?: string }): Promise<Buffer> {
   try {
-    const svg = Svg2(filename);
-    if (background) {
-      svg.options.update('background', { color: background });
-    } else {
-      svg.options.update('png', { transparent: true });
-    }
-    svg.svg.resize(size);
-    return await svg.png().toBuffer();
+    const svg = readFileSync(filename, 'utf-8');
+    const result = await renderAsync(svg, {
+      fitTo: { mode: 'width', value: size.width },
+      background,
+      font: { loadSystemFonts: true },
+    });
+    return result.asPng();
   }
   catch (err: unknown) {
     const error = err as Error;

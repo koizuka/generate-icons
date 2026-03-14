@@ -4,11 +4,6 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
-  ignore:
-    # file-type vulnerability is via oslllo-svg2 > jimp > @jimp/core > file-type
-    # Cannot be fixed until upstream jimp updates to file-type >= 21.3.1
-    # Practical risk is low (only affects ASF parsing, this tool processes SVG/PNG)
-    - dependency-name: "file-type"
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
