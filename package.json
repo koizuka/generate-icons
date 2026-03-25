@@ -32,6 +32,7 @@
 	},
 	"homepage": "https://github.com/koizuka/generate-icons#readme",
 	"type": "module",
+	"exports": "./dist/main.js",
 	"keywords": [
 		"svg",
 		"ico",
