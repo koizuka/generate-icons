@@ -63,7 +63,7 @@ Test data is stored in `test-data/` directory.
 
 ## Important Implementation Details
 
-1. **Node.js Requirement**: Requires Node.js >= 20
+1. **Node.js Requirement**: Requires Node.js >= 22
 2. **SVG to Raster Conversion**: Uses `oslllo-svg2` library which requires careful size specification
 3. **ICO Format**: ICO files can contain multiple PNG images of different sizes (16x16, 32x32, 48x48, etc.)
 4. **Background Handling**: Default is transparent; optional background color can be specified
