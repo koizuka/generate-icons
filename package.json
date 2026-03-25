@@ -17,7 +17,8 @@
     "prepare": "npm run build",
     "build": "rm -rf dist/* && tsc",
     "postversion": "git push && git push --tags",
-    "test": "vitest run"
+    "test": "vitest run",
+    "lint": "oxlint"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "@types/node": "^25.5.0",
     "@types/pngjs": "^6.0.5",
     "image-size": "^2.0.2",
+    "oxlint": "^1.57.0",
     "pngjs": "^7.0.0",
     "typescript": "^6.0.2",
     "vitest": "^4.1.1"

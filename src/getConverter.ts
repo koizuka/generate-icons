@@ -26,7 +26,7 @@ export type GenerateIconOptions = {
 
 async function svgToIco(svgFilename: string, sizes: Size[], { background, log }: GenerateIconOptions): Promise<Buffer> {
   const pngs = await Promise.all(sizes.map(size => {
-    log && log('size:', size.width);
+    log?.('size:', size.width);
     return getPngFromSvgFile(svgFilename, { size, background });
   }));
   const { default: PngToIco } = await import('png-to-ico');
@@ -37,7 +37,7 @@ async function svgToPng(svgFilename: string, sizes: Size[], { background, log }:
   if (sizes.length !== 1) {
     throw Error(`PNG: number of sizes must be 1, but ${sizes.length}`)
   }
-  log && log('size:', sizes[0].width);
+  log?.('size:', sizes[0].width);
   return await getPngFromSvgFile(svgFilename, { size: sizes[0], background });
 }
 
