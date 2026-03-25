@@ -29,6 +29,7 @@
     "url": "https://github.com/koizuka/generate-icons/issues"
   },
   "homepage": "https://github.com/koizuka/generate-icons#readme",
+  "type": "module",
   "keywords": [
     "svg",
     "ico",
