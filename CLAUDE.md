@@ -21,7 +21,7 @@ npm run build
 npm test
 
 # Run a specific test file
-npm test src/main.test.ts
+npx vitest run src/getConverter.test.ts
 
 # Run the CLI tool locally (after building)
 ./generate-icons --help
@@ -54,9 +54,8 @@ The codebase follows a modular design with clear separation of concerns:
 
 ### Testing Strategy
 
-Tests use Jest with ts-jest for TypeScript support. Key test files:
+Tests use Vitest for TypeScript support. Key test files:
 
-- `src/main.test.ts` - CLI integration tests
 - `src/getConverter.test.ts` - Converter logic tests
 - `src/loadIconsFromManifestJson.test.ts` - Manifest parsing tests
 
@@ -70,7 +69,7 @@ Test data is stored in `test-data/` directory.
 4. **Background Handling**: Default is transparent; optional background color can be specified
 5. **Path Resolution**: All file paths are resolved relative to the current working directory
 6. **Error Messages**: Use `FatalError` class for user-facing errors to ensure clean output
-7. **ESM Dependencies**: `png-to-ico` v3 is an ESM package; Jest requires `transformIgnorePatterns` and `@babel/preset-env` to handle it
+7. **ESM Dependencies**: `png-to-ico` v3 is an ESM package; Vitest handles it natively
 
 ## Common Tasks
 
