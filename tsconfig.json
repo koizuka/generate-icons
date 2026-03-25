@@ -3,9 +3,10 @@
   "exclude": ["node_modules", "**/*.test.ts"],
   "compilerOptions": {
     "target": "ES2022",
-    "module": "commonjs",
-    "moduleResolution": "node10",
+    "module": "node16",
+    "moduleResolution": "node16",
     "outDir": "./dist",
+    "rootDir": "./src",
     "types": ["vitest/globals"],
     "strict": true,
     "esModuleInterop": true,

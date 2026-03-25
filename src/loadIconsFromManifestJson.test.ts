@@ -1,4 +1,4 @@
-import { parseIconSizes } from "./loadIconsFromManifestJson"
+import { parseIconSizes } from "./loadIconsFromManifestJson.js"
 
 describe('parseIconSizes', () => {
   test('single size', () => {

@@ -1,5 +1,5 @@
 import { readFile } from 'fs/promises';
-import { FatalError } from "./FatalError";
+import { FatalError } from "./FatalError.js";
 
 type IconField = {
   src: string; // eg. "favicon.ico"
