@@ -3,7 +3,7 @@
   "version": "0.1.14",
   "description": "generate icons from single image file",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "bin": {
     "generate-icons": "generate-icons"
@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node ./generate-icons",
     "prepare": "npm run build",
-    "build": "rm -f dist/* && tsc",
+    "build": "rm -rf dist/* && tsc",
     "postversion": "git push && git push --tags",
     "test": "vitest run"
   },
