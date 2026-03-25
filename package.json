@@ -1,56 +1,57 @@
 {
-  "name": "generate-icons",
-  "version": "0.1.14",
-  "description": "generate icons from single image file",
-  "engines": {
-    "node": ">=22"
-  },
-  "bin": {
-    "generate-icons": "generate-icons"
-  },
-  "files": [
-    "dist",
-    "generate-icons"
-  ],
-  "scripts": {
-    "start": "node ./generate-icons",
-    "prepare": "npm run build",
-    "build": "rm -rf dist/* && tsc",
-    "postversion": "git push && git push --tags",
-    "test": "vitest run",
-    "lint": "oxlint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/koizuka/generate-icons.git"
-  },
-  "author": "koizuka",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/koizuka/generate-icons/issues"
-  },
-  "homepage": "https://github.com/koizuka/generate-icons#readme",
-  "type": "module",
-  "keywords": [
-    "svg",
-    "ico",
-    "png"
-  ],
-  "dependencies": {
-    "@resvg/resvg-js": "^2.6.2",
-    "command-line-args": "^6.0.1",
-    "command-line-usage": "^7.0.4",
-    "png-to-ico": "^3.0.1"
-  },
-  "devDependencies": {
-    "@types/command-line-args": "^5.2.3",
-    "@types/command-line-usage": "^5.0.4",
-    "@types/node": "^25.5.0",
-    "@types/pngjs": "^6.0.5",
-    "image-size": "^2.0.2",
-    "oxlint": "^1.57.0",
-    "pngjs": "^7.0.0",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.1"
-  }
+	"name": "generate-icons",
+	"version": "0.1.14",
+	"description": "generate icons from single image file",
+	"engines": {
+		"node": ">=22"
+	},
+	"bin": {
+		"generate-icons": "generate-icons"
+	},
+	"files": [
+		"dist",
+		"generate-icons"
+	],
+	"scripts": {
+		"start": "node ./generate-icons",
+		"prepare": "npm run build",
+		"build": "rm -rf dist/* && tsc",
+		"postversion": "git push && git push --tags",
+		"test": "vitest run",
+		"lint": "biome check",
+		"lint:fix": "biome check --write"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/koizuka/generate-icons.git"
+	},
+	"author": "koizuka",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/koizuka/generate-icons/issues"
+	},
+	"homepage": "https://github.com/koizuka/generate-icons#readme",
+	"type": "module",
+	"keywords": [
+		"svg",
+		"ico",
+		"png"
+	],
+	"dependencies": {
+		"@resvg/resvg-js": "^2.6.2",
+		"command-line-args": "^6.0.1",
+		"command-line-usage": "^7.0.4",
+		"png-to-ico": "^3.0.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.9",
+		"@types/command-line-args": "^5.2.3",
+		"@types/command-line-usage": "^5.0.4",
+		"@types/node": "^25.5.0",
+		"@types/pngjs": "^6.0.5",
+		"image-size": "^2.0.2",
+		"pngjs": "^7.0.0",
+		"typescript": "^6.0.2",
+		"vitest": "^4.1.1"
+	}
 }

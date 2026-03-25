@@ -1,11 +1,9 @@
 {
-  "cSpell.words": [
-    "oslllo",
-    "oxlint",
-    "pngjs"
-  ],
-  "oxc.enable": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit"
-  }
+	"cSpell.words": ["oslllo", "pngjs"],
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	}
 }
