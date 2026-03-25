@@ -2,9 +2,9 @@ import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
-import { FatalError } from "./FatalError";
-import { getConverter } from './getConverter';
-import { loadIconsFromManifestJson } from "./loadIconsFromManifestJson";
+import { FatalError } from "./FatalError.js";
+import { getConverter } from './getConverter.js';
+import { loadIconsFromManifestJson } from "./loadIconsFromManifestJson.js";
 
 export function getVersion() {
   const packageJson = readFileSync(path.join(__dirname, '..', 'package.json'));

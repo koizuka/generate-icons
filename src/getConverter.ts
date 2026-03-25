@@ -1,8 +1,7 @@
 import { readFileSync } from 'fs';
 import { renderAsync } from '@resvg/resvg-js';
-import PngToIco from 'png-to-ico';
-import { FatalError } from './FatalError';
-import { Size } from './loadIconsFromManifestJson';
+import { FatalError } from './FatalError.js';
+import { Size } from './loadIconsFromManifestJson.js';
 
 async function getPngFromSvgFile(filename: string, { size, background }: { size: { width: number, height: number }, background?: string }): Promise<Buffer> {
   try {
@@ -30,6 +29,7 @@ async function svgToIco(svgFilename: string, sizes: Size[], { background, log }:
     log && log('size:', size.width);
     return getPngFromSvgFile(svgFilename, { size, background });
   }));
+  const { default: PngToIco } = await import('png-to-ico');
   return await PngToIco(pngs);
 }
 

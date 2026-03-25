@@ -1,7 +1,7 @@
 import sizeOf from "image-size";
 import { PNG } from "pngjs";
-import { getConverter } from "./getConverter";
-import { Icon } from "./loadIconsFromManifestJson";
+import { getConverter } from "./getConverter.js";
+import { Icon } from "./loadIconsFromManifestJson.js";
 
 
 describe('generateIconsFromSvgFile', () => {
