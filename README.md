@@ -45,26 +45,31 @@ Options
 # Limitations
 
 supported input format:
-* svg
+- svg
 
 supported output formats:
-* .ico, .png
+- .ico, .png
 
 # Development information
+
 ## build and run
+
 ```shell
 npm run build
 npm start test-data/test.svg
 ```
 
 ## update version and publish
+
 ```shell
 npm version patch # eg. increase patch level
 ```
 then, release from version tag on GitHub
 
 # License
+
 ISC
 
 # Author
+
 @koizuka ([Twitter](https://twitter.com/koizuka))
