@@ -6,54 +6,53 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/test.yml'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'tsconfig.json'
-      - 'vitest.config.ts'
-      - 'src/*'
+      - ".github/workflows/test.yml"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - "vitest.config.ts"
+      - "src/*"
   pull_request:
     branches:
       - main
     paths:
-      - '.github/workflows/test.yml'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'tsconfig.json'
-      - 'vitest.config.ts'
-      - 'src/*'
+      - ".github/workflows/test.yml"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - "vitest.config.ts"
+      - "src/*"
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v7.0.1
+      - uses: actions/checkout@v7.0.1
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v7
-      with:
-        node-version: '24.x'
-        cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24.x"
+          cache: "npm"
 
-    - name: Install
-      run: npm ci
+      - name: Install
+        run: npm ci
 
-    - name: Lint
-      run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-    - name: Test
-      run: npm test
+      - name: Test
+        run: npm test
 
-    - name: Build
-      run: npm run build
+      - name: Build
+        run: npm run build
 
-    - name: Install test
-      run: |
-        mkdir -p check
-        cd check
-        npm init -y
-        npm install ..
-        ./node_modules/.bin/generate-icons -m ../test-data/manifest.json ../test-data/test.svg
-        test -f ../test-data/test.ico
-        test -f ../test-data/test.png
-
+      - name: Install test
+        run: |
+          mkdir -p check
+          cd check
+          npm init -y
+          npm install ..
+          ./node_modules/.bin/generate-icons -m ../test-data/manifest.json ../test-data/test.svg
+          test -f ../test-data/test.ico
+          test -f ../test-data/test.png
