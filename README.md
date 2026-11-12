@@ -6,8 +6,6 @@ it is intended to use with manifest.json which placed by [create-react-app](http
 
 On create-react-app'ed directory, only thing you have to do is to prepare a single square SVG file, and run generate-icons.
 
-
-
 # Usage
 
 ```bash
@@ -45,9 +43,11 @@ Options
 # Limitations
 
 supported input format:
+
 - svg
 
 supported output formats:
+
 - .ico, .png
 
 # Development information
