@@ -1,0 +1,94 @@
+# AGENTS.md
+
+This file provides guidance to AI coding agents when working with code in this repository.
+
+## Project Overview
+
+`generate-icons` is a TypeScript CLI tool that generates multiple icon files (ICO, PNG) from a single SVG source, reading requirements from a manifest.json file.
+
+## Essential Commands
+
+### Development
+
+```bash
+# Install dependencies
+npm install
+
+# Build TypeScript to JavaScript
+npm run build
+
+# Run tests
+npm test
+
+# Run a specific test file
+npx vitest run src/getConverter.test.ts
+
+# Run the CLI tool locally (after building)
+./generate-icons --help
+```
+
+### Publishing
+
+```bash
+# Version bump and create git tag
+npm version patch  # or minor/major
+
+# Publish to NPM
+npm publish
+```
+
+## Architecture
+
+The codebase follows a modular design with clear separation of concerns:
+
+1. **Entry Point**: `src/main.ts` - CLI argument parsing and orchestration
+2. **Core Logic**: `src/getConverter.ts` - Handles SVG→PNG→ICO conversion pipeline
+3. **Manifest Parser**: `src/loadIconsFromManifestJson.ts` - Reads icon specifications from manifest.json
+4. **Error Handling**: `src/FatalError.ts` - Custom error class for user-friendly error messages
+
+### Key Design Patterns
+
+- **Converter Functions**: Each output format has a converter function that handles the transformation
+- **Promise-based**: All async operations use Promises for clean error handling
+- **Type Safety**: TypeScript strict mode ensures type correctness throughout
+
+### Testing Strategy
+
+Tests use Vitest for TypeScript support. Key test files:
+
+- `src/getConverter.test.ts` - Converter logic tests
+- `src/loadIconsFromManifestJson.test.ts` - Manifest parsing tests
+
+Test data is stored in `test-data/` directory.
+
+## Important Implementation Details
+
+1. **Node.js Requirement**: Requires Node.js >= 22
+2. **SVG to Raster Conversion**: Uses `oslllo-svg2` library which requires careful size specification
+3. **ICO Format**: ICO files can contain multiple PNG images of different sizes (16x16, 32x32, 48x48, etc.)
+4. **Background Handling**: Default is transparent; optional background color can be specified
+5. **Path Resolution**: All file paths are resolved relative to the current working directory
+6. **Error Messages**: Use `FatalError` class for user-facing errors to ensure clean output
+7. **ESM Dependencies**: `png-to-ico` v3 is an ESM package; Vitest handles it natively
+
+## Common Tasks
+
+### Adding a New Output Format
+
+1. Add the MIME type handling in `src/getConverter.ts`
+2. Create a converter function following the existing pattern
+3. Add tests for the new format
+4. Update README.md with the new capability
+
+### Debugging Icon Generation Issues
+
+1. Check the manifest.json structure - it should have an "icons" array
+2. Verify SVG file is valid and accessible
+3. Use `--background` flag if transparency issues occur
+4. Check output paths are writable
+
+## Dependency Updates (Dependabot)
+
+- Dependabot runs daily for npm and weekly for GitHub Actions, with a 7-day cooldown.
+- `.github/workflows/dependabot-auto-merge.yml` enables auto-merge (squash) on Dependabot PRs that only update build-time tooling (`typescript`, `@types/*`, `@biomejs/*`, `vitest`, etc.), **except semver-major updates**; the PR merges once the required `test` check passes. Nothing is published to npm until a GitHub Release is created.
+- Runtime dependencies (`@resvg/resvg-js`, `png-to-ico`, `commander`), other devDependencies, grouped PRs containing any of them, and semver-major updates are reviewed and merged manually.
